@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset = "UTF-8" >
+
+    <title>Main Page </title> 
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="icon" href="{{url_for('static', filename='background.png')}}">
+
+    <link rel="stylesheet" href = {{path}}/>
+   
+   <style>
+    body { background-image: url(static/background1.png); background-size: cover;  /*opacity: 0.8;*/}
+    </style>
+
+</head>
+<body>
+        <center><img class = "logo" src="{{url_for('static', filename='logo2.jpg')}}"> </center>
+        <center><h1 class = "name" >  Social Nido  </h1>        </center>
+        <center><h2 class= "intro">
+            <strong>Get in touch with your near and lovely one's with Social Nido.</strong>  </h2></center>
+    
+        <span>
+    
+        <a href="/"> <input type="button" class = "signup_page_button" value="Sign Up"></a>
+    
+        <a href="login"> <input type="button" class = "login_page_button"  value="Login"></a> 
+        
+        </span>
+
+        <center>  <div class="registeration-form" style="background-color: rgba(255,255,255,0.5)" >
+
+
+            <form  name="reg-form" method="POST" enctype='multipart/form-data'>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                   {% for message in messages %}
+                     <h2 style="color:red">{{ message }}</h2>
+                   {% endfor %}
+                {% endif %}
+             {% endwith %}
+
+<div style="color:rgb(103, 99, 99); text-align:center; padding-top:5%; margin-bottom:4%;color: black;  font-size:xx-large;  ">------ Sign Up ------    </div>
+
+<p style="margin-bottom:4%; text-align:left; margin-left:8%; color: black;"> Create your account. It's free and only takes a minute.</p>
+
+<span class="form-fields"> <input type="text" name="First-Name" placeholder="First-Name"required> </span>       
+
+<span class="form-fields"> <input type="text" name="Last-Name" placeholder="Last-Name" required>    </span>
+            
+<div class="form-fields">  <input type="text" name="user-name" placeholder="User-Name" required >    </div>
+<div class="form-fields">  <input type="email" name="email" placeholder=" Email:- someone@gmail.com"> </div>
+<P>{{message}}</P>
+
+<div class="form-fields">  <input type="password" name="Password" placeholder="Password" >    </div>
+
+<div class="form-fields">  <input type="text" name="Phone Numer" placeholder="Phone Numer" >    </div>
+
+<div style=" margin-bottom:4%; font-size:14px">
+    Choose image for setting your profile:  <input type="file" accept="image/*" name="user-img" max="1"
+                                                  required >
+</div>
+
+<span class = "buttonn">
+<button style="background-color: rgba(0,0,0,0.7);color:  white;" type="reset" value="Clear"> Clear </button >
+     <button style= "background-color: rgba(0,0,0,0.7);color:  white;"  type="submit">Submit Form</button>
+</span>
+    
+</form>
+</div></center>  
+</body>
+</html>
